@@ -199,11 +199,12 @@ openFolder = ->
       title: window.browseTitle
     }, (path) ->
       folder_dialog_open = false
-      if path.slice(-1) != '/' and path.slice(-1) != '\\'
-        if process.platform == 'darwin'
-          path = path+'/'
-        else
-          path = path+'\\'
+      if path
+        if path.slice(-1) != '/' and path.slice(-1) != '\\'
+          if process.platform == 'darwin'
+            path = path+'/'
+          else
+            path = path+'\\'
 
       checkInstallPath(path)
 
