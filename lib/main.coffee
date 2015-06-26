@@ -61,7 +61,7 @@ reloadUpdate = (appAsar, updateAsar) ->
  * Function checks for updates by calling package.json on Github, and executes accordingly.
 ###
 runUpdates = ->
-  window.Championify.checkVer (needUpdate, version) ->
+  window.Championify.checkVer (needUpdate) ->
     if needUpdate
       $('#mainContainer').hide()
       $('#updateContainer').show()
@@ -79,12 +79,12 @@ runUpdates = ->
 ###
 isWindowsAdmin = (cb) ->
   if process.platform != 'darwin'
-    fs.writeFile window.lolInstallPath + '/test.txt', 'Testing Write', (err) ->
+    fs.writeFile GLOBAL.lolInstallPath + '/test.txt', 'Testing Write', (err) ->
       console.log err if err
-      if err or !fs.existsSync(window.lolInstallPath + '/test.txt')
+      if err or !fs.existsSync(GLOBAL.lolInstallPath + '/test.txt')
         cb 'err'
       else
-        fs.unlinkSync(window.lolInstallPath + '/test.txt')
+        fs.unlinkSync(GLOBAL.lolInstallPath + '/test.txt')
         cb null
   else
     cb null
@@ -158,8 +158,8 @@ setInstallPath = (pathErr, installPath, champPath) ->
     else
       champPath = 'Config/Champions/'
 
-  window.lolInstallPath = installPath
-  window.lolChampPath = installPath + champPath
+  GLOBAL.lolInstallPath = installPath
+  GLOBAL.lolChampPath = installPath + champPath
   $('#installPath').val(installPath)
 
   enableBtns = ->
@@ -243,7 +243,7 @@ $('.github > a').click (e) ->
  * Called when "Import" button is pressed.
 ###
 $('#importBtn').click (e) ->
-  if !window.lolInstallPath
+  if !GLOBAL.lolInstallPath
     $('#inputMsg').addClass('yellow')
     $('#inputMsg').text('You need to select your folder first!')
   else
@@ -254,7 +254,7 @@ $('#importBtn').click (e) ->
 
 
 $('#deleteBtn').click (e) ->
-  if !window.lolInstallPath
+  if !GLOBAL.lolInstallPath
     $('#inputMsg').addClass('yellow')
     $('#inputMsg').text('You need to select your folder first!')
   else

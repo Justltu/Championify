@@ -3,9 +3,49 @@ moment = require 'moment'
 async = require 'async'
 
 module.exports = {
+  ###*
+   * Function HTTP/HTTPS Request for legacy and UI.
+   * @param {String} URL
+   * @callback {Function} Callback
+  ###
+  request: (url, done) ->
+    if GLOBAL.championify_legacy
+      this.legacyRequest(url, done)
+    else
+      this.ajaxRequest(url, done)
 
   ###*
-   * Function Preset ajax request.
+   * Function HTTP request with Node
+   * @param {String} URL
+   * @callback {Function} Callback
+  ###
+  legacyRequest: (url, done) ->
+    url_obj = parseURL(url)
+    if url_obj.protocol == 'https:'
+      r = https
+    else
+      r = http
+
+    r.get {
+      host: url_obj.host,
+      path: url_obj.path
+    }, (response) ->
+      body = ''
+      response.on 'socket', (socket) ->
+        socket.setTimeout(60)
+      response.on 'error', (err) ->
+        console.log err
+        return done err
+      response.on 'data', (d) ->
+        body += d
+      response.on 'end', ->
+        try
+          body = JSON.parse(body)
+        catch e
+        done null, body
+
+  ###*
+   * Function Pre setup AJAX Request.
    * @param {String} URL
    * @callback {Function} Callback
   ###
@@ -88,8 +128,8 @@ module.exports = {
   cl: (text) ->
     m = moment().format('HH:mm:ss')
     m = ('['+m+'] | ') + text
-    console.log(m) if window.devEnabled
-    $('#cl-progress').prepend('<span>'+text+'</span><br />')
+    console.log(m) if window.devEnabled or GLOBAL.championify_legacy
+    $('#cl-progress').prepend('<span>'+text+'</span><br />') if !GLOBAL.championify_legacy
 
 
   ###*
@@ -97,13 +137,14 @@ module.exports = {
    * @param {Number} Increment progress bar.
   ###
   updateProgressBar: (incr) ->
-    this.incr = 0 if !this.incr
-    this.incr += incr
-    $('.progress-bar').attr('style', 'width: '+Math.floor(this.incr)+'%')
-    if this.incr >= 100
-      window.Championify.remote.getCurrentWindow().setProgressBar(-1)
-    else
-      window.Championify.remote.getCurrentWindow().setProgressBar(this.incr / 100)
+    if !GLOBAL.championify_legacy
+      this.incr = 0 if !this.incr
+      this.incr += incr
+      $('.progress-bar').attr('style', 'width: '+Math.floor(this.incr)+'%')
+      if this.incr >= 100
+        window.Championify.remote.getCurrentWindow().setProgressBar(-1)
+      else
+        window.Championify.remote.getCurrentWindow().setProgressBar(this.incr / 100)
 
 
   # TODO: This is a messy function. Clean it up with Lodash, possibly.
@@ -116,8 +157,8 @@ module.exports = {
       async.each _.keys(champData[champ]), (position, nextPosition) ->
         toFileData = JSON.stringify(champData[champ][position], null, 4)
 
-        mkdirp window.lolChampPath+champ+'/Recommended/', (err) ->
-          fileName = window.lolChampPath+champ+'/Recommended/CGG_'+champ+'_'+position+'.json'
+        mkdirp GLOBAL.lolChampPath+champ+'/Recommended/', (err) ->
+          fileName = GLOBAL.lolChampPath+champ+'/Recommended/CGG_'+champ+'_'+position+'.json'
           fs.writeFile fileName, toFileData, (err) ->
             console.log err if err # TODO: Print this to user.
             nextPosition null

@@ -19,32 +19,40 @@ GLOBAL.undefinedBuilds = []
 #      MAIN
 #################
 
-
 ###*
  * Function Check version of Github package.json and local.
  * @callback {Function} Callback.
 ###
 checkVer = (step) ->
   url = 'https://raw.githubusercontent.com/dustinblackman/Championify/master/package.json'
-  hlp.ajaxRequest url, (err, data) ->
-    data = JSON.parse(data)
+  hlp.request url, (err, data) ->
+    # data = JSON.parse(data)
     if hlp.versionCompare(data.version, pkg.version) == 1
-      step true, data.version
+      step data.version
     else
-      step false
+      step null
 
 ###*
  * Function Collects options from the Frontend.
  * @callback {Function} Callback.
 ###
 getSettings = (step) ->
-  GLOBAL.cSettings = {
-    splititems: $('#options_splititems').is(':checked')
-    skillsformat: $('#options_skillsformat').is(':checked')
-    trinkets: $('#options_trinkets').is(':checked')
-    consumables: $('#options_consumables').is(':checked')
-    locksr: $('#options_locksr').is(':checked')
-  }
+  if GLOBAL.championify_legacy
+    GLOBAL.cSetting = {
+      splititems: false
+      skillsformat: false
+      trinkets: true
+      consumables: true
+      locksr: false
+    }
+  else
+    GLOBAL.cSettings = {
+      splititems: $('#options_splititems').is(':checked')
+      skillsformat: $('#options_skillsformat').is(':checked')
+      trinkets: $('#options_trinkets').is(':checked')
+      consumables: $('#options_consumables').is(':checked')
+      locksr: $('#options_locksr').is(':checked')
+    }
   step null
 
 
@@ -54,7 +62,7 @@ getSettings = (step) ->
 ###
 getRiotVer = (step) ->
   cl 'Getting LoL Version'
-  hlp.ajaxRequest 'https://ddragon.leagueoflegends.com/realms/na.json', (err, body) ->
+  hlp.request 'https://ddragon.leagueoflegends.com/realms/na.json', (err, body) ->
     hlp.updateProgressBar(1.5)
     step null, body.v
 
@@ -65,9 +73,9 @@ getRiotVer = (step) ->
 ###
 getChampionGGVer = (step) ->
   cl 'Getting Champion.GG Version'
-  hlp.ajaxRequest 'http://champion.gg/faq/', (err, body) ->
+  hlp.request 'http://champion.gg/faq/', (err, body) ->
     $c = cheerio.load(body)
-    window.champGGVer = $c(csspaths.version).text()
+    GLOBAL.champGGVer = $c(csspaths.version).text()
     hlp.updateProgressBar(1.5)
     step null
 
@@ -78,7 +86,7 @@ getChampionGGVer = (step) ->
 ###
 getChamps = (step, r) ->
   cl 'Downloading Champs from Riot'
-  hlp.ajaxRequest 'http://ddragon.leagueoflegends.com/cdn/'+r.riotVer+'/data/en_US/champion.json', (err, body) ->
+  hlp.request 'http://ddragon.leagueoflegends.com/cdn/'+r.riotVer+'/data/en_US/champion.json', (err, body) ->
     step null, Object.keys(body.data)
 
 
@@ -89,7 +97,7 @@ getChamps = (step, r) ->
 ###
 deleteOldBuilds = (step, deletebtn) ->
   cl 'Deleting Old Builds'
-  glob window.lolChampPath+'**/CGG_*.json', (err, files) ->
+  glob GLOBAL.lolChampPath+'**/CGG_*.json', (err, files) ->
     async.each files, (item, next) ->
       fs.unlink item, (err) ->
         console.log err if err

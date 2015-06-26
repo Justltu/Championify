@@ -45,7 +45,7 @@ requestPage = (champ_info, step) ->
   else
     cl 'Processing Rift: '+champ_info.champ
 
-  hlp.ajaxRequest url, (err, body) ->
+  hlp.request url, (err, body) ->
     if err or _.contains(body, "We're currently in the process of generating stats for")
       GLOBAL.undefinedBuilds.push(champ)
       return cb()
@@ -129,7 +129,7 @@ processChamp = (champ_info, body, step) ->
     skillOrder = _.map skills, (e) ->
       return keys[e]
 
-    if window.cSettings.skillsformat
+    if GLOBAL.cSettings.skillsformat
       sliced_skills = _.countBy(skillOrder.slice(0, 9), _.identity)
       delete sliced_skills['R']
       sliced_skills = _.invert(sliced_skills)
@@ -191,13 +191,13 @@ processChamp = (champ_info, body, step) ->
   # Reusable function for generating Trainkets and Consumables.
   trinksCon = (builds) ->
     # Trinkets
-    if window.cSettings.trinkets
+    if GLOBAL.cSettings.trinkets
       builds.push {
         items: prebuilts.trinketUpgrades
         type: 'Trinkets | Frequent: '+skills.mostFreq
       }
 
-    if window.cSettings.consumables
+    if GLOBAL.cSettings.consumables
       # If champ has no mana, remove mana pot from consumables
       consumables = prebuilts.consumables.concat([])  # Lazy fix for pointer issue.
       if _.contains(manaless, champ)
@@ -301,13 +301,13 @@ processChamp = (champ_info, body, step) ->
 
     newObj = {
       champion: champ,
-      title: title + ' ' + window.champGGVer,
+      title: title + ' ' + GLOBAL.champGGVer,
       blocks: build
     }
 
     # Lock item sets to Summoners Rift
     riot_json = _.merge(_.clone(defaultSchema, true), newObj)
-    if window.cSettings.locksr
+    if GLOBAL.cSettings.locksr
       riot_json.map = "11"
 
     champData[champ][positionForFile] = riot_json
@@ -319,7 +319,7 @@ processChamp = (champ_info, body, step) ->
 
 
   # If split item sets
-  if window.cSettings.splititems
+  if GLOBAL.cSettings.splititems
     builds = splitItemSets()
     mfBuild = builds[0]
     hwBuild = builds[1]

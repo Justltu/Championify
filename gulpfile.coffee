@@ -1,10 +1,10 @@
-gulp        = require 'gulp'
-requireDir  = require 'require-dir'
+gulp = require 'gulp'
+requireDir = require 'require-dir'
 runSequence = require 'run-sequence'
-_           = require 'lodash'
+_ = require 'lodash'
 
 requireDir('./tasks')
-pkg         = require './package.json'
+pkg = require './package.json'
 
 # Setup some globals
 fileVersion = pkg.version.replace(/\./g, '-')
@@ -67,4 +67,13 @@ gulp.task 'release', ->
     'move-asar',
     'virustotal',
     'github-release'
+  )
+
+gulp.task 'legacy', ->
+  runSequence(
+    'delete-dev',
+    'mkdir',
+    'legacy:scripts',
+    'legacy:concat',
+    'legacy:run'
   )
