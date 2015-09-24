@@ -19,30 +19,280 @@
     </section>
 
     <section class="main-content">
-      <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+      <h1>
+<a id="championify" class="anchor" href="#championify" aria-hidden="true"><span class="octicon octicon-link"></span></a>Championify</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
+<p><em>Champion-If-Ayyy</em></p>
+
+<p><a href="https://gitter.im/dustinblackman/Championify?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://img.shields.io/badge/%E2%8A%AA%20GITTER%20-JOIN%20CHAT%20%E2%86%92-brightgreen.svg?style=flat" alt="Join the chat at https://gitter.im/dustinblackman/Championify"></a>
+<a href="https://travis-ci.org/dustinblackman/Championify/builds"><img src="https://img.shields.io/travis/dustinblackman/Championify/master.svg" alt="Travis"></a>
+<a href="https://ci.appveyor.com/project/dustinblackman/championify/branch/master"><img src="https://ci.appveyor.com/api/projects/status/dt20uyoxt2skgneu/branch/master?svg=true" alt="AppVeyor"></a>
+<a href="https://coveralls.io/github/dustinblackman/Championify?branch=master"><img src="https://img.shields.io/coveralls/dustinblackman/Championify/master.svg" alt="Coverage Status"></a>
+<a href="https://david-dm.org/dustinblackman/Championify"><img src="https://david-dm.org/dustinblackman/Championify.svg" alt="Dependency Status"></a>
+<a href="https://david-dm.org/dustinblackman/Championify#info=devDependencies"><img src="https://david-dm.org/dustinblackman/Championify/dev-status.svg" alt="devDependency Status"></a>
+<a href="https://zenhub.io"><img src="https://img.shields.io/badge/KanBan%20Board-Zenhub.io-blue.svg"></a>
+<a href="https://dustinblackman.oneskyapp.com/collaboration/project/95440"><img src="https://img.shields.io/badge/Translations-OneSky-2ea8e6.svg" alt="Translations"></a></p>
+
+<p>Latest Release Downloads: <a href="https://github.com/dustinblackman/Championify/releases/latest"><img src="https://img.shields.io/github/downloads/dustinblackman/Championify/latest/total.svg" alt="Downloads"></a></p>
+
+<p>Championify is a little program that downloads all the recent builds from Champion.gg and imports them in to your League of Legends to use within game! No hassle. Now with customization settings and a GUI!</p>
+
+<p>Windows and OSX are both supported, tested on Windows 8.1 and OSX 10.10.1.</p>
+
+<p><img src="https://i.imgur.com/2W3rKzK.png" alt="screenshot"></p>
+
+<p>Check out some more screenshots <a href="https://imgur.com/2W3rKzK,ADYZ9ED,KNVRFs7,umDkx5j,scpQPBH,GpHtwKt#0">here</a>!</p>
+
+<p>Note this application is still in development, as far as I've tested it's worked great, but don't get overly surprised if you find a bug or two.</p>
+
+<p>This application is inspired by <a href="https://github.com/ebildude123/champion.gg-item-set-creator">ebildude123</a> item set creator done in PHP.</p>
+
+<hr>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>Summoners Rift and ARAM Item Sets</li>
+<li>Skill Priorities lists</li>
+<li>Automatically save preference settings</li>
+<li>Does not touch other item sets that you or other applications create</li>
+</ul>
+
+<hr>
+
+<h2>
+<a id="downloads" class="anchor" href="#downloads" aria-hidden="true"><span class="octicon octicon-link"></span></a>Downloads</h2>
+
+<p>Found <a href="https://github.com/dustinblackman/Championify/releases/latest">here</a></p>
+
+<hr>
+
+<h2>
+<a id="change-log" class="anchor" href="#change-log" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="CHANGELOG.md">Change Log</a>
+</h2>
+
+<p><a name="0.4.1"></a></p>
 
 <h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
+<a id="041-july-20th-2015" class="anchor" href="#041-july-20th-2015" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.4.1 (July 20th, 2015)</h3>
 
 <h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating pages manually</h3>
+<a id="bug-fixes" class="anchor" href="#bug-fixes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bug Fixes</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<ul>
+<li>Grammar fixes (thanks iKevinY!)</li>
+<li>Mark log upload as failed if it can't be opened</li>
+<li>AJAX requests error instance (cause there was none...)</li>
+<li>Update error message for tips on how to fix</li>
+</ul>
+
+<p><a name="0.4.0"></a></p>
 
 <h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<a id="040-july-20th-2015" class="anchor" href="#040-july-20th-2015" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.4.0 (July 20th, 2015)</h3>
 
 <h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<a id="features-1" class="anchor" href="#features-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h3>
 
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+<ul>
+<li>Give user ability to set Trinkets and/or Consumables to top or bottom of item set</li>
+<li>Automatically save preferences and League directory</li>
+<li>Item sets file structure now follows Riot standards</li>
+<li>Add error/crash message for when something breaks</li>
+<li>New error log reporting system</li>
+<li>Switch from Bootstrap to Semantic UI (New buttons, progress bar, layout)</li>
+</ul>
+
+<h3>
+<a id="bug-fixes-1" class="anchor" href="#bug-fixes-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bug Fixes</h3>
+
+<ul>
+<li>Multiple windows opening when clicking browse</li>
+<li>Improved path handling</li>
+<li>Grammar fixes</li>
+<li>Tooltips so they're easier to view</li>
+</ul>
+
+<h3>
+<a id="notes" class="anchor" href="#notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes</h3>
+
+<ul>
+<li>ARAM builds still in Beta, still haven't decided what I want to do with them.</li>
+</ul>
+
+<hr>
+
+<h2>
+<a id="but-wait-i-have-a-suggestion" class="anchor" href="#but-wait-i-have-a-suggestion" aria-hidden="true"><span class="octicon octicon-link"></span></a>BUT WAIT! I have a suggestion!</h2>
+
+<p>Well that's great! Put up an Issue, hit me up on <a href="https://gitter.im/dustinblackman/Championify">Gitter</a>, or send me a message on reddit <a href="https://www.reddit.com/user/dustinheroin">/u/dustinheroin</a> and I'll try to get it when I can.</p>
+
+<h2>
+<a id="contribute" class="anchor" href="#contribute" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contribute</h2>
+
+<p>If you can code Coffeescript, feel free to make a pull request.
+Make sure to check out my <a href="https://github.com/dustinblackman/Championify#boards?repos=34264106">Zenhub board</a> so we don't have any conflicts if I or someone else has already started on an issue. :)</p>
+
+<h4>
+<a id="rules" class="anchor" href="#rules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rules:</h4>
+
+<ul>
+<li>Must pass all tests. <code>npm test</code>
+</li>
+<li>Must write tests for all new functions (look at current tests for examples, still a WIP).</li>
+<li>Functions must be camel cased. <code>downloadStuff()</code>
+</li>
+<li>Variables must be underscored. <code>my_champion = 'teemo'</code>
+</li>
+<li>PR must be off and back to master branch.</li>
+</ul>
+
+<p>I suggest making sure your linters are setup correctly, or run gulp lint every now and again.</p>
+
+<h3>
+<a id="translations" class="anchor" href="#translations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Translations</h3>
+
+<p>I use a <a href="https://dustinblackman.oneskyapp.com/collaboration/project/95440">Onesky</a> to manage all my translations, it's super easy, includes initial English text, screenshots, and lets everyone contribute! Check it out. Please prevent from putting translations in PRs, I'd rather keep those for code.</p>
+
+<hr>
+
+<p><a name="faq"></a></p>
+
+<h2>
+<a id="frequently-asked-questions" class="anchor" href="#frequently-asked-questions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Frequently Asked Questions</h2>
+
+<h4>
+<a id="be-more-descriptive-what-does-this-actually-do" class="anchor" href="#be-more-descriptive-what-does-this-actually-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>Be more descriptive, what does this actually do?</h4>
+
+<p>Well it's easy really. Here's a link for <a href="http://champion.gg/champion/Teemo">Teemo's most popular build in top lane</a> that Champion.gg has tracked. We take this information and save it in a way that League of Legends likes so you can have the exact builds in game!</p>
+
+<h4>
+<a id="is-it-safe" class="anchor" href="#is-it-safe" aria-hidden="true"><span class="octicon octicon-link"></span></a>Is it safe?</h4>
+
+<p>Yep it's safe! Were not modifying League of Legends at all, so no rules broken there. And my code is clean and free to browse, so no smelly virus' or surprises. I've added VirusTotal report to all my recent releases just to be sure. If you still don't trust my executables, have a tech buddy look over my code themselves and you can build from <a href="#source">source</a>.</p>
+
+<p><a name="autoupdate_error"></a></p>
+
+<h4>
+<a id="i-just-opened-championify-to-find-a-black-window-or-just-an-error-pop-up" class="anchor" href="#i-just-opened-championify-to-find-a-black-window-or-just-an-error-pop-up" aria-hidden="true"><span class="octicon octicon-link"></span></a>I just opened Championify to find a black window, or just an error pop up?</h4>
+
+<p>If you have version 0.2.0 or lower, that's my fault, sorry about that. I made a mistake with my Auto Updater that caused the issue. Redownload the latest version and this shouldn't happen again. Found <a href="https://github.com/dustinblackman/Championify/releases/latest">here</a>.</p>
+
+<h4>
+<a id="how-do-i-make-this-work-on-windows" class="anchor" href="#how-do-i-make-this-work-on-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>How do I make this work on Windows?</h4>
+
+<p>Run Championify.exe, the app will try and look for your League of Legends folder for you. If the app can't find it, browse to your League of Legends folder where lol.launcher.exe is saved (LoLLauncher.exe for Garena installations).</p>
+
+<h4>
+<a id="how-do-i-make-this-work-on-mac" class="anchor" href="#how-do-i-make-this-work-on-mac" aria-hidden="true"><span class="octicon octicon-link"></span></a>How do I make this work on Mac?</h4>
+
+<p>Run Championify, the app will try and look for your League of Legends.app for you. If the app can't find it, browse and select your League of Legends.app.</p>
+
+<h4>
+<a id="why-do-i-not-see-the-item-sets-in-the-launcher" class="anchor" href="#why-do-i-not-see-the-item-sets-in-the-launcher" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why do I not see the item sets in the launcher?</h4>
+
+<p>Due to Riot restrictions, you can only see the item sets in game, you won't see them in the launcher.</p>
+
+<h4>
+<a id="why-does-this-not-work-on-xp-vista-or-osx-lion" class="anchor" href="#why-does-this-not-work-on-xp-vista-or-osx-lion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why does this not work on XP, Vista, or OSX Lion?</h4>
+
+<p>Sorry, Electron doesn't support anything below 7 or Mountain Lion. There's no plans to support it.</p>
+
+<h4>
+<a id="app-cant-be-opened-because-it-is-from-an-unidentified-developer" class="anchor" href="#app-cant-be-opened-because-it-is-from-an-unidentified-developer" aria-hidden="true"><span class="octicon octicon-link"></span></a>"App can’t be opened because it is from an unidentified developer"</h4>
+
+<p>Read <a href="http://osxdaily.com/2012/07/27/app-cant-be-opened-because-it-is-from-an-unidentified-developer/">this</a> to fix it.</p>
+
+<h4>
+<a id="aahhhh-something-broke-its-all-messed-up" class="anchor" href="#aahhhh-something-broke-its-all-messed-up" aria-hidden="true"><span class="octicon octicon-link"></span></a>AAHHHH! SOMETHING BROKE! IT'S ALL MESSED UP!</h4>
+
+<p>Calm down, I gotcha! If something went wrong it means something has changed that I did not expect. Follow the steps <a href="#uninstall">below</a> in the next FAQ question to remove Championify's builds.</p>
+
+<p><a name="uninstall"></a></p>
+
+<h4>
+<a id="nah-bro-i-dont-like-this-how-can-i-delete-all-your-builds" class="anchor" href="#nah-bro-i-dont-like-this-how-can-i-delete-all-your-builds" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nah bro, I don't like this. How can I delete all your builds?</h4>
+
+<p>I'm sorry you don't like it, hopefully I'll have it live up to your expectations one day! As for deleting, just hit the "Delete" button in Championify and it'll remove all the items sets generated by Championify.</p>
+
+<h4>
+<a id="should-i-be-running-this-everyday" class="anchor" href="#should-i-be-running-this-everyday" aria-hidden="true"><span class="octicon octicon-link"></span></a>Should I be running this everyday?</h4>
+
+<p>Oh no not at all, that's the last thing you want to do. The best time to run Championify is 3-4 day after a major patch comes out. Only got to do it once.</p>
+
+<h4>
+<a id="why-do-you-force-auto-updates" class="anchor" href="#why-do-you-force-auto-updates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why do you force auto updates?</h4>
+
+<p>If something was to change on Riots end and Championify's item sets broke your client or completely screwed up one of your games, you'd be pretty pissed right? I know I would be. This is just one method to make sure you run in to the least amount of problems possible, plus the update are under ~4MB anyway.</p>
+
+<h4>
+<a id="why-is-my-antivirus-complaining-about-lolflavor" class="anchor" href="#why-is-my-antivirus-complaining-about-lolflavor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why is my antivirus complaining about lolflavor?</h4>
+
+<p>Let me guess, BitDefender? I know, I got it running too. For some reason they have lolflavor marked as malware, which I've checked myself and it's not. To add, Championify never loads a lolflavor page, so even if there was malware laying around Championify would never open it. See <a href="https://www.virustotal.com/en/url/576b112b6ae43a58f00176c5efe8f9456fa16dcfcf4e341e17f6c68c6a5e0e88/analysis/1435015572/">virus total report here</a>. To fix the issue, add "lolflavor.com" to your exceptions in your anti virus.</p>
+
+<h4>
+<a id="if-this-has-been-done-before-why-did-you-do-it-again" class="anchor" href="#if-this-has-been-done-before-why-did-you-do-it-again" aria-hidden="true"><span class="octicon octicon-link"></span></a>If this has been done before, why did you do it again?</h4>
+
+<p>Well for a few reasons. <a href="https://github.com/ebildude123/champion.gg-item-set-creator">ebildude123</a> original script is in PHP, and I wanted to do some changes and I don't like PHP in the slightest. Another issue is that the greater part of the world doesn't have PHP installed by default making the use of his script very difficult, plus you have a good number of people who automatically run in fear when they have to open a command prompt. My solution is a simple .exe/.app where you run and follow the instructions. Much easier.</p>
+
+<h4>
+<a id="why-is-your-script-so-slow" class="anchor" href="#why-is-your-script-so-slow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why is your script so slow?</h4>
+
+<p>Well damn, you must be pretty impatient if you think that's slow... The script is slowed on purpose so users don't spam Champion.gg's servers. They're doing great great stuff over there and the last thing I'd want to do is cause them trouble. However if it's REALLY slow, then you should consider upgrading your dial up connection.</p>
+
+<h4>
+<a id="why-is-the-file-size-so-big" class="anchor" href="#why-is-the-file-size-so-big" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why is the file size so big?</h4>
+
+<p>I use Electron to wrap my GUI, and unfortunately it's a bit big. I'd rather the App just work then worry about size.</p>
+
+<hr>
+
+<h2>
+<a id="future-plans" class="anchor" href="#future-plans" aria-hidden="true"><span class="octicon octicon-link"></span></a>Future Plans</h2>
+
+<p>Check out the <a href="https://github.com/dustinblackman/Championify/labels/feature">Features tag in Issues</a> to see all up and  coming ideas.</p>
+
+<hr>
+
+<p><a name="source"></a></p>
+
+<h2>
+<a id="build-from-source" class="anchor" href="#build-from-source" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build From Source</h2>
+
+<p>You must have iojs 2.3.1 installed on your system (thats what Electron is using), git clone the repo and run the following in the root folder.</p>
+
+<div class="highlight highlight-text-shell-session"><pre><span class="pl-mo">npm install -g gulp</span>
+<span class="pl-mo">npm install</span>
+<span class="pl-mo">npm run build</span></pre></div>
+
+<p>You'll find a Championify.exe/Championify.app in the releases folder.</p>
+
+<p>Wine is required if building on Mac for Windows.</p>
+
+<div class="highlight highlight-text-shell-session"><pre><span class="pl-mo">brew install wine</span></pre></div>
+
+<hr>
+
+<h2>
+<a id="credit" class="anchor" href="#credit" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credit</h2>
+
+<ul>
+<li>Icon by <a href="https://twitter.com/omervalentine">OmerValentine</a>
+</li>
+<li>
+<a href="https://www.reddit.com/user/joeldo">Joeldo</a> of <a href="http://champion.gg">Champion.gg</a>
+</li>
+<li><a href="http://www.lolflavor.com/">Lolflavor</a></li>
+</ul>
+
+<hr>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="LICENSE">License</a>
+</h2>
+
+<p>Championify isn't endorsed by any of it's content sources or Riot Games and doesn't reflect the views or opinions of them or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/dustinblackman/Championify">Championify</a> is maintained by <a href="https://github.com/dustinblackman">dustinblackman</a>.</span>
